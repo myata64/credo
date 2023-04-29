@@ -21,7 +21,18 @@ def account_page():
 @app.route('/submit', methods=['POST'])
 def submit():
 	name = request.form['name']
-	password = request.form['email']
+	password = request.form['password']
+
+	data = {
+		'name': name,
+		'password': password
+	}
+	with open('data.json', 'w') as f:
+		json.dump(data, f)
+
+	return f'Привет, {name}! Ваш password - {password} сохранены в json'
+
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
