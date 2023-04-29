@@ -47,6 +47,18 @@ def submit():
 	return f'Привет, {email}! Ваш password - {password} сохранены в json'
 
 
+@app.route('/entry', methods=['POST'])
+def entry():
+	email = request.form['email']
+	password = request.form['password']
+
+	with open('data.json', 'r') as f:
+		saved_data = json.load(f)
+
+	if email == saved_data['email'] and password == saved_data['password']:
+		return 'Вход выполнен'
+	else:
+		return 'Данные не совпадают'
 
 if __name__ == '__main__':
 	app.run(debug=True)
