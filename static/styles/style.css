@@ -102,9 +102,12 @@ header {
 .container  {
     max-width: 1320px;
     margin: 0 auto;
+
+    position: relative;
 }
 .header_nav {
     height: 100px;
+    position: relative;
 }
 .header_logo {
     position: relative;
@@ -129,6 +132,22 @@ header {
 }
 .header_menu:hover {
   border-bottom: 1px solid white;
+}
+
+/*ACCOUNT Style*/
+.header_registration {
+  position: absolute;
+  top: calc(25%);
+  right: 64px;
+  z-index: 99999;
+
+}
+.header_account-icon {
+  position: relative;
+  top: 0;
+  z-index: 99999;
+  width: 50px;
+  height: 50px;
 }
 #header_shadow {
     width: 100%;

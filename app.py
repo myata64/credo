@@ -14,6 +14,14 @@ def home_page():  # put application's code here
 def shoes_page():
 	return render_template('shoes.html')
 
+@app.route('/account')
+def account_page():
+	return render_template('account.html')
+
+@app.route('/submit', methods=['POST'])
+def submit():
+	name = request.form['name']
+	password = request.form['email']
 
 if __name__ == '__main__':
 	app.run(debug=True)
