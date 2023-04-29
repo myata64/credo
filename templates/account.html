@@ -6,20 +6,15 @@
     <link rel="stylesheet" href="/static/styles/account.css">
 </head>
 <body>
-    <div class="page">
-        <div class="container">
-            <div class="wrapper">
-
-                <form action="/submit" method="post">
-                  <label for="name">Имя:</label>
-                  <input type="text" id="name" name="name"><br><br>
-
-                  <label for="password">Password:</label>
-                  <input type="password" id="password" name="password"><br><br>
-                  <input type="submit" value="Отправить">
-                </form>
-
+<div class="popup" id="popup">
+  <div class="popup__body">
+      <div class="popup__close-area close-popup"></div>
+        <div class="popup__content">
+            <span class="popup__title">День добрый</span>
+            <a href="{{ url_for('entrance_page') }}">Войти</a>
+            <a href="{{ url_for('registration_page') }}">Зарегистрироваться</a>
         </div>
+       </div>
     </div>
 </body>
 </html>

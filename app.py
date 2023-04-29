@@ -14,25 +14,37 @@ def home_page():  # put application's code here
 def shoes_page():
 	return render_template('shoes.html')
 
+
+
 @app.route('/account')
 def account_page():
 	return render_template('account.html')
+@app.route('/entrance')
+def entrance_page():
+	return render_template('entrance.html')
+@app.route('/registration')
+def registration_page():
+	return render_template('registration.html')
+
+
 @app.route('/newbalance')
 def newbalance_page():
 	return render_template('nb990.html')
+
+
 @app.route('/submit', methods=['POST'])
 def submit():
-	name = request.form['name']
+	email = request.form['email']
 	password = request.form['password']
 
 	data = {
-		'name': name,
+		'email': email,
 		'password': password
 	}
 	with open('data.json', 'w') as f:
 		json.dump(data, f)
 
-	return f'Привет, {name}! Ваш password - {password} сохранены в json'
+	return f'Привет, {email}! Ваш password - {password} сохранены в json'
 
 
 
