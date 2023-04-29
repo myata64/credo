@@ -17,7 +17,9 @@ def shoes_page():
 @app.route('/account')
 def account_page():
 	return render_template('account.html')
-
+@app.route('/newbalance')
+def newbalance_page():
+	return render_template('nb990.html')
 @app.route('/submit', methods=['POST'])
 def submit():
 	name = request.form['name']

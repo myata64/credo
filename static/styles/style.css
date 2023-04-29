@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Urban Sketart';
-    src: url('./fonts/urban-sketart.regular.ttf') format('truetype');
+    src: url('static/fonts/urban-sketart.regular.ttf') format('truetype');
 }
 
 /* Box sizing rules */
