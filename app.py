@@ -5,17 +5,12 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def home_page():  # put application's code here
 	return render_template('home.html')
-
 @app.route('/brends')
 def shoes_page():
 	return render_template('shoes.html')
-
-
-
 @app.route('/account')
 def account_page():
 	return render_template('account.html')
@@ -25,8 +20,6 @@ def entrance_page():
 @app.route('/registration')
 def registration_page():
 	return render_template('registration.html')
-
-
 @app.route('/newbalance')
 def newbalance_page():
 	return render_template('nb990.html')
@@ -41,22 +34,31 @@ def submit():
 		'email': email,
 		'password': password
 	}
+
 	with open('data.json', 'w') as f:
 		json.dump(data, f)
 
 	return f'Привет, {email}! Ваш password - {password} сохранены в json'
 
 
+
+# Входит pользователь
 @app.route('/entry', methods=['POST'])
-def entry():
+def entry_app():
 	email = request.form['email']
 	password = request.form['password']
+
+	admin_email = 'admin@gmail.com'
+	admin_password = 'admin12345'
 
 	with open('data.json', 'r') as f:
 		saved_data = json.load(f)
 
-	if email == saved_data['email'] and password == saved_data['password']:
-		return 'Вход выполнен'
+	if email == admin_email and password == admin_password:
+		# return 'Вы вошли как админ)'
+		return redirect(url_for('home_page'))
+	elif email == saved_data['email'] and password == saved_data['password']:
+		return 'Вы вошли как пользователь'
 	else:
 		return 'Данные не совпадают'
 
