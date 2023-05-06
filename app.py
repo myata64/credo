@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect
-from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, FileField, SubmitField
-from wtforms.validators import DataRequired
+# from flask_wtf import FlaskForm
+# from wtforms import StringField, TextAreaField, FileField, SubmitField
+# from wtforms.validators import DataRequired
 import os
 
 app = Flask(__name__)
@@ -11,11 +11,11 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 publications = []
 
 
-class PublicationForm(FlaskForm):
-	title = StringField('Заголовок', validators=[DataRequired()])
-	content = TextAreaField('Текст', validators=[DataRequired()])
-	image = FileField('Изображение')
-	submit = SubmitField('Опубликовать')
+# class PublicationForm(FlaskForm):
+# 	title = StringField('Заголовок', validators=[DataRequired()])
+# 	content = TextAreaField('Текст', validators=[DataRequired()])
+# 	image = FileField('Изображение')
+# 	submit = SubmitField('Опубликовать')
 
 
 @app.route('/', methods=['GET', 'POST'])
