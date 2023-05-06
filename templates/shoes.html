@@ -1,3 +1,4 @@
+{#{% extends 'home.html' %}#}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +16,14 @@
     
 
     <link rel="stylesheet" href="/static/styles/shoes.css">
+    <link rel="stylesheet" href="/static/styles/style.css">
     <script src="/static/scripts/shadow.js"></script>
 </head>
 <body>
     <div class="page">
-    <header>
+{#    {% block header %}#}
+{#    {% endblock %}#}
+        <header>
         <div id="hover" class="header_nav">
             <div class="container">
                 <a class="header_logo hover" href="home.html" id="logo">C R E D O</a>
@@ -27,9 +31,12 @@
                     <a href="{{ url_for('shoes_page') }}" class="header_menu"><li>Обувь</li></a>
                     <a href="" class="header_menu"><li>Штаны</li></a>
                     <a href="" class="header_menu"><li>Худи</li></a>
-                    <a href="" class="header_menu"><li>куртки</li></a>  
+                    <a href="" class="header_menu"><li>Куртки</li></a>
                     <a href="" class="header_menu"><li>Аксуссуары</li></a>
                 </ul>
+            </div>
+            <div class="header_registration">
+                <a class="header_account-icon_link" href="{{ url_for('account_page') }}"><img class="header_account-icon" src="/static/img/user.png" alt="sign-up"></a>
             </div>
             <div id="header_shadow" class="header_shadow"></div>
         </div>
@@ -107,7 +114,21 @@
             </div>
         </div> 
     </div> 
-    
+
+        <div class="admin_function">
+            <button id="admin_gears"><img src="/static/img/gears.png" alt=""></button>
+            <div id="admin_menu">
+                <ul>
+                    <li>
+                        <form action="/home/add-post">
+                            <label for="message">message:</label>
+                            <input type="text" id="add-post" name="post">
+                            <input type="submit" value="Submit">
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
     <footer class="footer">
         <nav>
@@ -123,6 +144,7 @@
       </footer>
     </div>
     </div>
+    <script src="/static/scripts/add-post.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
